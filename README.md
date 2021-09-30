@@ -1,4 +1,4 @@
-#     Simple Webmail Client
+#     Simple Webmail Client ![Build Status](https://app.travis-ci.com/Intro-to-SE-Lab-Fall-21-Section-2/Group7.svg?branch=master)
 
 ## Team Members: 
 Jeffrey Tagen / jtagen <br />
