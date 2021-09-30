@@ -9,3 +9,8 @@ php:
 #Possibly needed, depends on PHP version
 #before_install:
 #  - echo "extension = ldap.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
+
+notifications:
+   on_success: never
+   on_failure: never
