@@ -1,0 +1,11 @@
+language: php
+php:
+  - '7.4.2'
+
+#Plans for PHPUnit for unit testing in the future
+#before_script:
+#  - curl -sSfL -o ~/.phpenv/versions/hhvm/bin/phpunit https://phar.phpunit.de/phpunit-5.7.phar
+
+#Possibly needed, depends on PHP version
+#before_install:
+#  - echo "extension = ldap.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
