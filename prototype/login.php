@@ -12,6 +12,11 @@ include("header.php");
               <div class="mb-6">
                 <span class="text-gray-500">Already a member?</span>
                 <h3 class="text-2xl font-bold text-white">Sign In</h3>
+
+                <?php if ($_GET["error"]) {?>
+                  <span style="color: red; font-size; 12em;">Invalid Login, please check your sign-in information.</span>
+
+                <?php } ?>
               </div>
                 <div class="flex flex-wrap -mx-2">
                   <div class="mb-3 w-full lg:w-1/2 px-2">
