@@ -18,4 +18,11 @@ Design and implement an email client based on defined external requirements and 
 
 
 ## Features: 
-TBD
+1. User Login
+   - User inputs username and password into two separate fields and either hits enter or clicks on a submission button for submission to access his/her emails. 
+2. Inbox
+   - This page displays the sender’s name, message title, message receipt date. 
+   - This page indicates if the messages are read or unread using a status indicator in it's own column. 
+   - There are inactive buttons/links for accessing the inbox, drafting e-mails, accessing deleted e-mails, and additional pages of inbox.
+   - The user can logout
+3. User Logout - The user can easily logout of their account. 
