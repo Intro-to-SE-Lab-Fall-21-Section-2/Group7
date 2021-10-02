@@ -8,4 +8,4 @@ php:
 #  - composer install --prefer-source --no-interaction
 
 
-script: .prototype/vendor/bin/phpunit
+#script: .prototype/vendor/bin/phpunit
