@@ -27,9 +27,3 @@ Design and implement an email client based on defined external requirements and 
    - The user can logout
 3. User Logout - The user can easily logout of their account. 
 
-# Sprint 3
-Sprint 3 will focus on conitued integration of the features descriped in the SRS. Users can currently login, view their inbox of current messages, and logout when needed. Sprint three will build on this with the integration of:
-* Email editor for drafting and sending email
-* Search function for searching email subjects
-* Methods for sorting emails
-* Replying/Forwarding desired emails
