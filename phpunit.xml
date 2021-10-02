@@ -1,6 +1,6 @@
-<phpunit bootstrap="tests/autoload.php">
+<phpunit bootstrap="prototype/tests/autoload.php">
   <testsuites>
-    <testsuite name="converter">
+    <testsuite name="basic">
       <directory suffix="Test.php">prototype/tests</directory>
     </testsuite>
   </testsuites>
