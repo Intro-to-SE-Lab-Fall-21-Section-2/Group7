@@ -1,2 +1,6 @@
 unz_phpinfo.pdf
 
+.buildpath
+*.prefs
+.project
+*.xml

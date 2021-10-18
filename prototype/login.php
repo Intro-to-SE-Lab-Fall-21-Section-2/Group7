@@ -2,7 +2,7 @@
 include("global.php"); // call mailbox class, mailbox function, test connection function, GetMessages 
 include("header.php"); // Loads basic HTML header, starts finishes <head> and starts <body>
 ?>
- <form action="login_process.php" method="POST" id="login">
+ <form action="login_process.php" method="POST" id="login"> <!-- send form data to login_process.php, firstname, lastname, server, username, password -->
       <section class="py-10 lg:py-20 bg-gray-800">
         <div class="container mx-auto px-4">
           <div class="max-w-xl mx-auto">
@@ -12,11 +12,6 @@ include("header.php"); // Loads basic HTML header, starts finishes <head> and st
               <div class="mb-6">
                 <span class="text-gray-500">Already a member?</span>
                 <h3 class="text-2xl font-bold text-white">Sign In</h3>
-
-                <?php if ($_GET["error"]) {?>
-                  <span style="color: red; font-size; 12em;">Invalid Login, please check your sign-in information.</span>
-
-                <?php } ?>
               </div>
                 <div class="flex flex-wrap -mx-2">
                   <div class="mb-3 w-full lg:w-1/2 px-2">
@@ -54,5 +49,5 @@ include("header.php"); // Loads basic HTML header, starts finishes <head> and st
       </section>
 </form>
 <?php
-include("footer.php");
+include("footer.php"); // loads html footer
 ?>
