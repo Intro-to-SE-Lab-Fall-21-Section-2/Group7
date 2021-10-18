@@ -1,6 +1,6 @@
 <?php
-include("global.php");
-include("header.php");
+include("global.php"); // call mailbox class, mailbox function, test connection function, GetMessages 
+include("header.php"); // Loads basic HTML header, starts finishes <head> and starts <body>
 ?>
  <form action="login_process.php" method="POST" id="login">
       <section class="py-10 lg:py-20 bg-gray-800">
