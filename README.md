@@ -26,3 +26,4 @@ Design and implement an email client based on defined external requirements and 
    - There are inactive buttons/links for accessing the inbox, drafting e-mails, accessing deleted e-mails, and additional pages of inbox.
    - The user can logout
 3. User Logout - The user can easily logout of their account. 
+
