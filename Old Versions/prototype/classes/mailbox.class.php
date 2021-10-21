@@ -28,31 +28,6 @@ class Mailbox {
 		                                                     // See https://www.php.net/manual/en/function.imap-fetch-overview.php
 		return $response;
 	}
-
-
-	public function GetMessage($num) { // Get messages off IMAP server
-		$connection_string = "{" . $this->user->server . ":993/imap/ssl/novalidate-cert}"; // construct string to imap server
-		$connection = @imap_open($connection_string, $this->user->username,$this->user->password); 		$data = imap_fetchbody($connection, 1,"");
-
-		$range = $num . ":" . $num;
-		$response = imap_fetch_overview($connection,$range); // Returns an ARRAY of objects describing single message in range
-		$message = $response[0];
-
-		include("classes/plancakeemailparser.class.php");
-		$emailParser = new PlancakeEmailParser($data);
-		//https://github.com/daniele-occhipinti/php-email-parser
-
-		return [
-			"to"=>$emailParser->getTo(),
-			"from"=>$message->from,
-			"subject"=>$emailParser->getSubject(),
-			"cc"=>$emailParser->getCc(),
-			"date"=>$message->date,
-			"plainbody"=>$emailParser->getPlainBody(),
-			"htmlbody"=>$emailParser->getHTMLBody()];
-	}
-
-
 }
 
 
