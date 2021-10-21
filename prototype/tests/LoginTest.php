@@ -1,9 +1,8 @@
 <?php
 
-include("../classes/mailbox.class.php");
-include("../classes/user.class.php");
+include("prototype/classes/mailbox.class.php");
+include("prototype/classes/user.class.php");
 
-echo "Working directory: " . getcwd() . "\n";
 use PHPUnit\Framework\TestCase;
 
 class LoginTest extends TestCase {
