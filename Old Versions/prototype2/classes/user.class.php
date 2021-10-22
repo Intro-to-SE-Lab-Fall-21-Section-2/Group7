@@ -13,9 +13,9 @@ class User {
 		return ($this->email != "");
 	}
 
-	function Login($server,$username,$password,$firstname,$lastname) { // Login using successful username and password by checking imap connectivity
+	function Login($server,$username,$password) { // Login using successful username and password by checking imap connectivity
 
-	    if (Mailbox::TestConnection($server,$username,$password,$firstname, $lastname)) { // @imap_open connection using username, password, server
+	    if (Mailbox::TestConnection($server,$username,$password,$firstname = "", $lastname = "")) { // @imap_open connection using username, password, server
 			$this->firstname = $firstname;
 			$this->lastname = $lastname;
 			$this->username = $username;

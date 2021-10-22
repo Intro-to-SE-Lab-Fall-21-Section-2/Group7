@@ -1,12 +1,5 @@
 <?php
 
-//used by PHPMailer
-include_once("classes/Exception.php");
-include_once("classes/PHPMailer.php");
-include_once("classes/SMTP.php");
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 
 class Mailbox {
 	var $user;
@@ -39,8 +32,7 @@ class Mailbox {
 
 	public function GetMessage($num) { // Get messages off IMAP server
 		$connection_string = "{" . $this->user->server . ":993/imap/ssl/novalidate-cert}"; // construct string to imap server
-		$connection = @imap_open($connection_string, $this->user->username,$this->user->password); 		
-		$data = imap_fetchbody($connection, $num,"");
+		$connection = @imap_open($connection_string, $this->user->username,$this->user->password); 		$data = imap_fetchbody($connection, 1,"");
 
 		$range = $num . ":" . $num;
 		$response = imap_fetch_overview($connection,$range); // Returns an ARRAY of objects describing single message in range
@@ -59,55 +51,6 @@ class Mailbox {
 			"plainbody"=>$emailParser->getPlainBody(),
 			"htmlbody"=>$emailParser->getHTMLBody()];
 	}
-
-	public function SendMessage($to,$subject,$body) {
-
-
-
-		$mail = new PHPMailer();
-
-		$mail->isSMTP();
-		//$mail->SMTPDebug = SMTP::DEBUG_SERVER;
-
-		$mail->Host = $this->user->server; //'smtp.gmail.com';
-		//Use `$mail->Host = gethostbyname('smtp.gmail.com');`
-
-
-		//Set the SMTP port number:
-		// - 465 for SMTP with implicit TLS, a.k.a. RFC8314 SMTPS or
-		// - 587 for SMTP+STARTTLS
-		$mail->Port = 465;
-
-		//Set the encryption mechanism to use:
-		// - SMTPS (implicit TLS on port 465) or
-		// - STARTTLS (explicit TLS on port 587)
-		$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-
-		$mail->SMTPAuth = true;
-		$mail->Username = $this->user->username; //'cse6214test@gmail.com';
-		$mail->Password = $this->user->password; //'msstatems';
-
-		$mail->setFrom($this->user->username, $this->user->firstname . " " . $this->user->lastname);
-
-		$mail->addReplyTo($this->user->username, $this->user->firstname . " " . $this->user->lastname);
-		$mail->addAddress($to);
-
-		$mail->Subject = $subject;
-
-
-
-		$mail->msgHTML($body);
-		$mail->AltBody = $body;
-
-		//$mail->addAttachment('images/phpmailer_mini.png');
-
-		//send the message, check for errors
-
-		return $mail->send();
-
-
-	}
-
 
 
 }
