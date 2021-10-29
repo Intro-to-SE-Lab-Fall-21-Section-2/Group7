@@ -9,6 +9,8 @@ class testLogin extends TestCase {
 
     public function testLoginSuccess() {
     	
+        // Gmail does not like Travis login, use https://accounts.google.com/b/0/DisplayUnlockCaptcha then rebuild on travis
+        
         $user = new User();
 
     	$server = "imap.gmail.com";
