@@ -1,7 +1,5 @@
 <?php
 
-include("prototype/classes/mailbox.class.php");
-
 use PHPUnit\Framework\TestCase;
 
 class xyz extends TestCase
