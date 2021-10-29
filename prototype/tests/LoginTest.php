@@ -9,7 +9,9 @@ class testLogin extends TestCase {
 
     public function testLoginSuccess() {
     	
-        /* $user = new User();
+        // Gmail does not like Travis login, use https://accounts.google.com/b/0/DisplayUnlockCaptcha then rebuild on travis
+        
+        $user = new User();
 
     	$server = "imap.gmail.com";
     	$username = "cse6214test@gmail.com";
@@ -18,9 +20,9 @@ class testLogin extends TestCase {
     	$lastname = "Doe";
 
 
-        $this->assertEquals(true,$user->Login($server, $username,$password,$firstname,$lastname)); */
+        $this->assertEquals(true,$user->Login($server, $username,$password,$firstname,$lastname));
         
-        $this->assertTrue(true);
+        #$this->assertTrue(true);
     }
 
 
