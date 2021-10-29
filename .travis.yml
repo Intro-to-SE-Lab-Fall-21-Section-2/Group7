@@ -3,9 +3,9 @@ language: php
 php:
   - '7.4.2'
 
-before_install: cd prototype
+#before_install: cd prototype
 #  - composer self-update
 #  - composer install --prefer-source --no-interaction
 
 
-script: vendor/bin/phpunit
+#script: vendor/bin/phpunit
