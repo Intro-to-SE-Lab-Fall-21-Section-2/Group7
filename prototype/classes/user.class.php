@@ -20,7 +20,7 @@ class User {
 			return true;
 		}
 		return false;
-	}
+	} 
 
 	function Logout() { // removes user information
 		$this->userid = 
