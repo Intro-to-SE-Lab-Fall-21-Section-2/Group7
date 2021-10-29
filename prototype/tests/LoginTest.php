@@ -20,7 +20,7 @@ class testLogin extends TestCase {
 
         $this->assertEquals(true,$user->Login($server, $username,$password,$firstname,$lastname));
         
-        $this->assertTrue(true);
+        #$this->assertTrue(true);
     }
 
 
