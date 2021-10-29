@@ -25,10 +25,8 @@ class testLogin extends TestCase {
         #$this->assertTrue(true);
     }
 
-
     public function testLoginFail() {
     	$user = new User();
-
     	
     	$this->assertEquals(false,$user->Login("","","","",""));
     }
