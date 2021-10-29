@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '74cf9572f5d15ccfe4d4490b2173637e2179bcad',
+        'reference' => '3c81964dc22877d795adaabea1321eca1bea6cef',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '74cf9572f5d15ccfe4d4490b2173637e2179bcad',
+            'reference' => '3c81964dc22877d795adaabea1321eca1bea6cef',
             'dev_requirement' => false,
         ),
         'doctrine/instantiator' => array(
@@ -66,6 +66,15 @@
             'aliases' => array(),
             'reference' => 'bae7c545bef187884426f042434e561ab1ddb182',
             'dev_requirement' => true,
+        ),
+        'php-imap/php-imap' => array(
+            'pretty_version' => '4.1.0',
+            'version' => '4.1.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../php-imap/php-imap',
+            'aliases' => array(),
+            'reference' => '7ca3d19451bfe6de47186b52f4b266179a5858b9',
+            'dev_requirement' => false,
         ),
         'phpdocumentor/reflection-common' => array(
             'pretty_version' => '2.2.0',
