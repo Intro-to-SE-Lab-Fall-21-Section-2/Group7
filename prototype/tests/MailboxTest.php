@@ -10,9 +10,7 @@ class xyz extends TestCase
        $server = "imap.gmail.com";
         $username = "cse6214test@gmail.com";
         $password = "msstatems";
-        
-        $connection = @imap_open($connection_string, $username,$password);
-        
+              
         $this->assertEquals(true,$user->TestConnection($server, $username,$password));
         
         #$this->assertTrue(true);
