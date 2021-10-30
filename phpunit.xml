@@ -1,7 +1,9 @@
-<phpunit>
-  <testsuites>
-    <testsuite name="basic">
-      <directory suffix="Test.php">prototype/tests</directory>
-    </testsuite>
-  </testsuites>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit colors="true">
+    <testsuites>
+        <testsuite name="Prototype Test Suite">
+            <directory>./prototype/tests/</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>
