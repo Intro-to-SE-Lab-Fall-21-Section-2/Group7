@@ -1,23 +1,33 @@
 <?php
 
+
 use PHPUnit\Framework\TestCase;
 
-class xyz extends TestCase
+class testTestConnection extends TestCase
 {
+    
+    
     public function testTestConnectionSuccess()
     {
+        $user = new User();
         
-       $server = "imap.gmail.com";
+        $server = "imap.gmail.com";
         $username = "cse6214test@gmail.com";
         $password = "msstatems";
-              
-        $this->assertEquals(true,$user->TestConnection($server, $username,$password));
+
+        $this->assertEquals(true,Mailbox::TestConnection($server,$username,$password));
         
         #$this->assertTrue(true);
     }
     
-    public function testGetMessages()
+    public function testTestConnectionFailure()
     {
-        $this->assertTrue(true);
+        $user = new User();
+        
+        $server = "imap.gmail.com";
+        $username = "cse6214test@gmail.com";
+        $password = "wrongpassword";
+        
+        $this->assertEquals(false,Mailbox::TestConnection($server,$username,$password));
     }
 }
