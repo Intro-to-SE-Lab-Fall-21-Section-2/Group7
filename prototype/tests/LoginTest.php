@@ -31,4 +31,5 @@ class testLogin extends TestCase {
     	$this->assertEquals(false,$user->Login("","","","",""));
     }
 
-}
+} 
+ 
