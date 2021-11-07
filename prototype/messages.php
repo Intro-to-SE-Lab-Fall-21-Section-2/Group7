@@ -18,7 +18,7 @@ $messages = $mbox->GetMessages(0); // An array of objects describing message
         </div>
       </nav>
     
-      <!-- Botton on left handside of inbox -->
+      <!-- Buttons on left hand side of inbox -->
       <div class="flex flex-wrap -mx-4 -mb-4 md:mb-0">
         <div class="w-full md:w-1/3 px-4 mb-4 md:mb-0">
       <div>
@@ -29,8 +29,8 @@ $messages = $mbox->GetMessages(0); // An array of objects describing message
         <div class="my-12"></div>
         <div><a href="#" class="text-grey-600 hover:underline">Draft</a></div>
         <div class="my-12"></div>
+	-->
         <div><a href="#" class="text-grey-600 hover:underline">Trash</a></div>
-        -->
       </div>
       </div>
         <div class="w-full md:w-2/3 px-4 mb-4 md:mb-0">
