@@ -60,15 +60,7 @@ class Mailbox {
 	    $connection_string = "{" . $this->user->server . ":993/imap/ssl/novalidate-cert}"; // construct string to imap server
 	    $trash_string = "[Gmail]/Trash";
 	    $connection = @imap_open($connection_string, $this->user->username,$this->user->password);
-	    
-	    If($connection){
-	        print("IMAP Open");
-	    }else{
-	        print("IMAP NOT OPEN");
-	    }
-	    
-	    echo "email number " . $num;
-	    
+
 	    $response = imap_mail_move($connection, $num, $trash_string);
 	    
 	    If($response){
@@ -78,7 +70,7 @@ class Mailbox {
 	    }
 	}
 	
-
+	
 
 	public function GetMessage($num) { // Get messages off IMAP server
 		$connection_string = "{" . $this->user->server . ":993/imap/ssl/novalidate-cert}"; // construct string to imap server
@@ -103,16 +95,6 @@ class Mailbox {
 			"plainbody"=>$emailParser->getPlainBody(),
 			"htmlbody"=>$emailParser->getHTMLBody()];
 		
-		/*
-		 return [
-			"to"=>$message->to,
-			"from"=>$message->from,
-			"subject"=>$message->subject,
-			"cc"=>$emailParser->getCc(),
-			"date"=>$message->date,
-			"plainbody"=>imap_fetchbody($connection,$num,1.1),
-			"htmlbody"=>imap_fetchbody($connection,$num,1.2)];
-		 */
 	}
 	
 	public function GetMessageTrash($num) { // Get messages off IMAP server
@@ -140,7 +122,19 @@ class Mailbox {
 
 	}
 	
-
+	public function DeleteEmail($num) { // Get messages off IMAP server
+	    $connection_string = "{" . $this->user->server . ":993/imap/ssl/novalidate-cert}[Gmail]/Trash"; // construct string to imap server
+	    $connection = @imap_open($connection_string, $this->user->username,$this->user->password);
+	    
+	    $response = imap_delete($connection, $num);
+	    
+	    If($response){
+	        print("Email successful deleted!");
+	    } else {
+	        print("Email failed to delete!");
+	    }
+	}
+	
 	public function SendMessage($to,$subject,$body) {
 
 

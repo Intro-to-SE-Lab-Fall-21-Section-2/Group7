@@ -45,7 +45,7 @@ $message = $mbox->GetMessageTrash($_GET["id"]); // An array of objects describin
       
       <div class="mb-6">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="">Message</label>
-        <iframe width="100%" height="800" src="message_body.php?id=<?php echo $_GET["id"];?>"></iframe>
+        <iframe width="100%" height="800" src="trash_body.php?id=<?php echo $_GET["id"];?>"></iframe>
       </div>
       </div>
 

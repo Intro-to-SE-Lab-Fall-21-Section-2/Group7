@@ -14,7 +14,7 @@ $mbox = new Mailbox($_SESSION["user"]); // pass user variables to mailbox
 
       <div class="mb-6">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="">Message</label>
-        <?php $message = $mbox->SendToTrash($_GET["id"]); ?>
+        <?php $message = $mbox->DeleteEmail($_GET["id"]); ?>
       </div>
       
 
