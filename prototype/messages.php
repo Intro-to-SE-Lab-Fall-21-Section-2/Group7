@@ -30,7 +30,7 @@ $messages = $mbox->GetMessages(0); // An array of objects describing message
         <div><a href="#" class="text-grey-600 hover:underline">Draft</a></div>
         <div class="my-12"></div>
 	-->
-        <div><a href="trash.php" class="text-grey-600 hover:underline">Trash</a></div>
+        <div><a href="trash.php" class="text-grey-600 hover:underline">Trashbox</a></div>
       </div>
       </div>
         <div class="w-full md:w-2/3 px-4 mb-4 md:mb-0">
