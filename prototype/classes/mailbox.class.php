@@ -33,8 +33,28 @@ class Mailbox {
 		$range = "1:".$message_count->Nmsgs; // Appends range for number of messages in inbox
 		$response = imap_fetch_overview($connection,$range); // Returns an ARRAY of objects describing single message in range
 		                                                     // See https://www.php.net/manual/en/function.imap-fetch-overview.php
+		                                                     
+		//$list = imap_list($connection, $connection_string, '*'); // Used to get list of folders so they can be displayed
+		//print_r($list);
+		
 		return $response;
 	}
+	
+	public function GetTrash($offset = 0) { // Get messages off IMAP server
+	    
+	    $connection_string = "{" . $this->user->server . ":993/imap/ssl/novalidate-cert}[Gmail]/Sent Mail"; // construct string to imap server
+	    $connection = @imap_open($connection_string, $this->user->username,$this->user->password); // imap_open to start IMAP stream
+	    
+	    $message_count = imap_check($connection); // check IMAP instance, returns object with properties Date, Driver, Mailbox name, Nmsgs, Recent number of messages
+	    
+	    //TODO: implement offset checking based on $message_count->Nmsgs;
+	    
+	    $range = "1:".$message_count->Nmsgs; // Appends range for number of messages in inbox
+	    $response = imap_fetch_overview($connection,$range); // Returns an ARRAY of objects describing single message in range
+	    // See https://www.php.net/manual/en/function.imap-fetch-overview.php
+	    return $response;
+	}
+	
 
 
 	public function GetMessage($num) { // Get messages off IMAP server

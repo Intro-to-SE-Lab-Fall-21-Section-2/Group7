@@ -3,7 +3,7 @@ include("global.php"); // call mailbox class, mailbox function, test connection 
 include("header.php"); // call user class, IsLoggedIn, Login Function, Logout Function
 
 $mbox = new Mailbox($_SESSION["user"]); // pass user variables to mailbox
-$messages = $mbox->GetMessages(0); // An array of objects describing message
+$messages = $mbox->GetTrash(0); // An array of objects describing message
 
 ?>
 
