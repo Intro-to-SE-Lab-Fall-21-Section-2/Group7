@@ -69,10 +69,13 @@ class Mailbox {
 	    
 	    echo "email number " . $num;
 	    
-	    $res = imap_mail_move($connection, $num, $trash_string);
+	    $response = imap_mail_move($connection, $num, $trash_string);
 	    
-	    
-	    
+	    If($response){
+	        print("Email successful moved to trash!");
+	    } else {
+	        print("Email failed to move to trash!");
+	    }
 	}
 	
 
