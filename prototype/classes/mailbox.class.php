@@ -128,6 +128,8 @@ class Mailbox {
 	    
 	    $response = imap_delete($connection, $num);
 	    
+	    imap_expunge($connection);
+	    
 	    If($response){
 	        print("Email successful deleted!");
 	    } else {

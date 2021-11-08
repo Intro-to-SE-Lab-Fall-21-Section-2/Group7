@@ -50,7 +50,7 @@ $messages = $mbox->GetTrash(0); // An array of objects describing message
       
       <!-- Section is for displaying current email inbox  -->
       <section class="py-8 px-4">
-        <h2 class="text-3xl mb-2 font-semibold font-heading font-semibold">Inbox</h2>
+        <h2 class="text-3xl mb-2 font-semibold font-heading font-semibold">Trash</h2>
         <table class="w-full table-auto">
           <thead>
             <tr><th class="border-t px-2 py-2" scope="col">Sender</th><th class="border-t px-2 py-2" scope="col">Subject</th><!--<th class="text-center border-t px-2 py-2" scope="col">Status</th>--><th class="text-center border-t px-2 py-2" scope="col">Date</th><th class="text-center border-t px-2 py-2" scope="col">Action</th><th class="text-center border-t px-2 py-2" scope="col">Delete</th></tr>
