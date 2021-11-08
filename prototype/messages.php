@@ -74,7 +74,8 @@ $messages = $mbox->GetMessages(0); // An array of objects describing message
 	              </td>
                 -->
 	              <td class="text-center border-t px-2 py-2"><?php echo date("m/d/Y g:i a", strtotime($message->date));?></td>
-	              <td class="text-center border-t px-2 py-2"><a class="text-indigo-600 hover:underline" href="message.php?id=<?php echo $message->uid;?>">open</a></td>
+	              <!--  <td class="text-center border-t px-2 py-2"><a class="text-indigo-600 hover:underline" href="message.php?id=<?php echo $message->uid;?>">open</a></td>  -->
+	               <td class="text-center border-t px-2 py-2"><a class="text-indigo-600 hover:underline" href="message.php?id=<?php echo $message->msgno;?>">open</a></td>
 	            </tr>
 		        <? } ?>
 

@@ -42,7 +42,7 @@ class Mailbox {
 	
 	public function GetTrash($offset = 0) { // Get messages off IMAP server
 	    
-	    $connection_string = "{" . $this->user->server . ":993/imap/ssl/novalidate-cert}[Gmail]/Sent Mail"; // construct string to imap server
+	    $connection_string = "{" . $this->user->server . ":993/imap/ssl/novalidate-cert}[Gmail]/Trash"; // construct string to imap server
 	    $connection = @imap_open($connection_string, $this->user->username,$this->user->password); // imap_open to start IMAP stream
 	    
 	    $message_count = imap_check($connection); // check IMAP instance, returns object with properties Date, Driver, Mailbox name, Nmsgs, Recent number of messages
@@ -52,7 +52,25 @@ class Mailbox {
 	    $range = "1:".$message_count->Nmsgs; // Appends range for number of messages in inbox
 	    $response = imap_fetch_overview($connection,$range); // Returns an ARRAY of objects describing single message in range
 	    // See https://www.php.net/manual/en/function.imap-fetch-overview.php
+	    
 	    return $response;
+	}
+	
+	public function SendToTrash($num) { // Get messages off IMAP server
+	    $connection_string = "{" . $this->user->server . ":993/imap/ssl/novalidate-cert}"; // construct string to imap server
+	    $trash_string = "[Gmail]/Trash";
+	    $connection = @imap_open($connection_string, $this->user->username,$this->user->password);
+	    
+	    If($connection){
+	        print("IMAP Open");
+	    }else{
+	        print("IMAP NOT OPEN");
+	    }
+	    
+	    echo "email number " . $num;
+	    
+	    $res = imap_mail_move($connection, $num, $trash_string, CP_UID);
+	    
 	}
 	
 
@@ -69,7 +87,8 @@ class Mailbox {
 		include("classes/plancakeemailparser.class.php");
 		$emailParser = new PlancakeEmailParser($data);
 		//https://github.com/daniele-occhipinti/php-email-parser
-
+        
+		
 		return [
 			"to"=>$emailParser->getTo(),
 			"from"=>$message->from,
@@ -78,6 +97,17 @@ class Mailbox {
 			"date"=>$message->date,
 			"plainbody"=>$emailParser->getPlainBody(),
 			"htmlbody"=>$emailParser->getHTMLBody()];
+		
+		/*
+		 return [
+			"to"=>$message->to,
+			"from"=>$message->from,
+			"subject"=>$message->subject,
+			"cc"=>$emailParser->getCc(),
+			"date"=>$message->date,
+			"plainbody"=>imap_fetchbody($connection,$num,1.1),
+			"htmlbody"=>imap_fetchbody($connection,$num,1.2)];
+		 */
 	}
 
 	public function SendMessage($to,$subject,$body) {
