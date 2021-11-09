@@ -3,18 +3,17 @@
 include("global.php");
 include("header.php");
 $mbox = new Mailbox($_SESSION["user"]); // pass user variables to mailbox
-$message = $mbox->GetMessage($_GET["id"]); // An array of objects describing message
+$message = $mbox->GetMessageTrash($_GET["id"]); // An array of objects describing message
 ?>
 
       <div class="flex flex-wrap -mx-4 -mb-4 md:mb-0">
         <div class="w-full md:w-1/3 px-4 mb-4 md:mb-0">
-      <a class="inline-block py-3 px-6 leading-none text-white bg-indigo-600 hover:bg-indigo-700 font-semibold rounded shadow" href="messages.php">Inbox</a>
-      <a class="inline-block py-3 px-6 leading-none text-white bg-indigo-600 hover:bg-indigo-700 font-semibold rounded shadow" href="trash.php">Trashbox</a>
+      <a class="inline-block py-3 px-6 leading-none text-white bg-indigo-600 hover:bg-indigo-700 font-semibold rounded shadow" href="messages.php">Inbox</a> <a class="inline-block py-3 px-6 leading-none text-white bg-indigo-600 hover:bg-indigo-700 font-semibold rounded shadow" href="trash.php">Trashbox</a>
+      
       <a class="inline-block py-3 px-6 leading-none text-white bg-indigo-600 hover:bg-indigo-700 font-semibold rounded shadow" href="compose.php?to=<?php echo urlencode(implode(",",$message["to"]));?>&subject=<?php echo urlencode("Re: " . $message["subject"]);?>&replyto=<?php echo $_GET["id"];?>">Reply</a>
       
       <a class="inline-block py-3 px-6 leading-none text-white bg-indigo-600 hover:bg-indigo-700 font-semibold rounded shadow" href="compose.php?subject=<?php echo urlencode("Fe: " . $message["subject"]);?>&replyto=<?php echo $_GET["id"];?>">Forward</a>
-      
-      <a class="inline-block py-3 px-6 leading-none text-white bg-indigo-600 hover:bg-indigo-700 font-semibold rounded shadow" href="SentToTrash.php?id=<?php echo $_GET["id"];?>">Trash</a>
+      <a class="inline-block py-3 px-6 leading-none text-white bg-indigo-600 hover:bg-indigo-700 font-semibold rounded shadow" href="DeleteEmail.php?id=<?php echo $_GET["id"];?>">DELETE</a>
       </div>
         <div class="w-full md:w-1/3 px-4 mb-4 md:mb-0">
       <div class="mb-6">
@@ -47,7 +46,7 @@ $message = $mbox->GetMessage($_GET["id"]); // An array of objects describing mes
       
       <div class="mb-6">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="">Message</label>
-        <iframe width="100%" height="800" src="message_body.php?id=<?php echo $_GET["id"];?>"></iframe>
+        <iframe width="100%" height="800" src="trash_body.php?id=<?php echo $_GET["id"];?>"></iframe>
       </div>
       </div>
 
