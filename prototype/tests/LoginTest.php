@@ -1,14 +1,14 @@
 <?php
 
-include("prototype/classes/mailbox.class.php");
-include("prototype/classes/user.class.php");
+#include("prototype/classes/mailbox.class.php");
+#include("prototype/classes/user.class.php");
 
 #include("classes/mailbox.class.php");
 #include("classes/user.class.php");
 
 use PHPUnit\Framework\TestCase;
 
-class testLogin extends TestCase {
+class LoginTest extends TestCase {
 
     public function testLoginSuccess() {
     	
@@ -29,7 +29,17 @@ class testLogin extends TestCase {
     }
 
     public function testLoginFail() {
-    	$user = new User();
+        
+        $user = new User();
+        
+        $server = "imap.gmail.com";
+        $username = "cse6214test@gmail.com";
+        $password = "wrongpassword";
+        $firstname = "John";
+        $lastname = "Doe";
     	
-    	$this->assertEquals(false,$user->Login("","","","",""));
+        $this->assertEquals(false,$user->Login($server, $username,$password,$firstname,$lastname));
+
     }
+    
+}
