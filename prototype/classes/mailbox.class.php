@@ -1,9 +1,9 @@
 <?php
 
 //used by PHPMailer
-include_once("classes/Exception.php");
-include_once("classes/PHPMailer.php");
-include_once("classes/SMTP.php");
+include("classes/Exception.php");
+include("classes/PHPMailer.php");
+include("classes/SMTP.php");
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -64,12 +64,40 @@ class Mailbox {
 	    $response = imap_mail_move($connection, $num, $trash_string);
 	    
 	    If($response){
-	        print("Email successful moved to trash!");
+	        print("Email successful moved to trashbox!");
+	        return True;
 	    } else {
-	        print("Email failed to move to trash!");
+	        print("Email failed to move to trashbox!");
+	        return False;
 	    }
 	}
 	
+	public function SendToInbox($num) { // Get messages off IMAP server
+	    $connection_string = "{" . $this->user->server . ":993/imap/ssl/novalidate-cert}[Gmail]/Trash"; // construct string to imap server
+	    $inbox_string = "{" . $this->user->server . ":993/imap/ssl/novalidate-cert}[Gmail]Spam";
+	    $connection = @imap_open($connection_string, $this->user->username,$this->user->password);
+	    
+	    If($connection){
+	        print("Connection Successful");
+	    }
+	    
+	    $srv = '{imap.example.com}';
+	    $boxes = imap_list($connection, $inbox_string, '*');
+	    
+	    print_r($boxes);
+	    
+	    $response = imap_mail_move($connection, $num, 'INBOX');
+	    
+	    print($response);
+	    
+	    If($response){
+	        print("Email successful moved to Inbox!");
+	        return True;
+	    } else {
+	        print("Email failed to move to Inbox!");
+	        return False;
+	    }
+	}
 	
 
 	public function GetMessage($num) { // Get messages off IMAP server

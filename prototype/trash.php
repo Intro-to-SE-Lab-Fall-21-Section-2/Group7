@@ -53,7 +53,11 @@ $messages = $mbox->GetTrash(0); // An array of objects describing message
         <h2 class="text-3xl mb-2 font-semibold font-heading font-semibold">Trashbox</h2>
         <table class="w-full table-auto">
           <thead>
-            <tr><th class="border-t px-2 py-2" scope="col">Sender</th><th class="border-t px-2 py-2" scope="col">Subject</th><!--<th class="text-center border-t px-2 py-2" scope="col">Status</th>--><th class="text-center border-t px-2 py-2" scope="col">Date</th><th class="text-center border-t px-2 py-2" scope="col">Action</th><th class="text-center border-t px-2 py-2" scope="col">Delete</th></tr>
+            <tr><th class="border-t px-2 py-2" scope="col">Sender</th><th class="border-t px-2 py-2" scope="col">Subject</th><!--<th class="text-center border-t px-2 py-2" scope="col">Status</th>-->
+            <th class="text-center border-t px-2 py-2" scope="col">Date</th>
+            <th class="text-center border-t px-2 py-2" scope="col">Action</th>
+            <th class="text-center border-t px-2 py-2" scope="col">Restore</th>
+            <th class="text-center border-t px-2 py-2" scope="col">Delete</th></tr>
           </thead>
           <tbody>
 
@@ -75,6 +79,7 @@ $messages = $mbox->GetTrash(0); // An array of objects describing message
                 -->
 	              <td class="text-center border-t px-2 py-2"><?php echo date("m/d/Y g:i a", strtotime($message->date));?></td>
 	              <td class="text-center border-t px-2 py-2"><a class="text-indigo-600 hover:underline" href="messageTrash.php?id=<?php echo $message->msgno;?>">open</a></td>
+	              <td class="text-center border-t px-2 py-2"><a class="text-indigo-600 hover:underline" href="RestoreEmail.php?id=<?php echo $message->msgno;?>">Restore</a></td>
 	              <td class="text-center border-t px-2 py-2"><a class="text-indigo-600 hover:underline" href="DeleteEmail.php?id=<?php echo $message->msgno;?>">Delete</a></td>
 	            </tr>
 		        <? } ?>
