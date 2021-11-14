@@ -21,8 +21,7 @@ Design and implement an email client based on defined external requirements and 
 1. User Login
    - User inputs username and password into two separate fields and either hits enter or clicks on a submission button for submission to access his/her emails. 
 2. Inbox
-   - This page displays the sender’s name, message title, message receipt date. 
-   - This page indicates if the messages are read or unread using a status indicator in it's own column. 
+   - This page displays the sender’s name, message title, message receipt date.  
    - There are buttons/links for accessing emails in the inbox, drafting emails in the email editor, and accessing deleted emails.
    - The user can logout from the inbox.
 3. Email Editor
