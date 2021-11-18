@@ -6,9 +6,6 @@ use PHPUnit\Framework\TestCase;
 #include("prototype/classes/PHPMailer.php");
 #include("prototype/classes/SMTP.php");
 # --testdox-html <output file>
-session_start();
-
-
 
 class testGetMessages extends TestCase
 {
@@ -25,8 +22,18 @@ class testGetMessages extends TestCase
 
         $messages = Mailbox::GetMessages(0);
         */
+        $this->markTestSkipped('Test testGetMessageSuccess has not been completed and has been skipped');
+    }
+    
+    public function testGetSingleMessaageSuccess(){
+        /*$mbox = new Mailbox($_SESSION["user"]); // pass user variables to mailbox
         
-        $this->markTestIncomplete('Test broken');
+        $messageNumber = 1;
+        $message = $mbox->GetMessage($messageNumber);
+        
+        $this->assertTrue(true);*/
+        
+        $this->markTestSkipped('Test testGetSingleMessageSuccess() has not been completed and been skipped');
     }
     
   

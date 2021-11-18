@@ -25,7 +25,7 @@ class testLogin extends TestCase {
 
         $this->assertEquals(true,$user->Login($server, $username,$password,$firstname,$lastname));
         
-        #$this->assertTrue(true);
+       
     }
 
     public function testLoginFail() {
@@ -38,9 +38,7 @@ class testLogin extends TestCase {
         $firstname = "John";
         $lastname = "Doe";
     	
-        #this->assertEquals(false,$user->Login($server, $username,$password,$firstname,$lastname));
-        $this->markTestSkipped('Test broken');
-
+        $this->assertEquals(false,$user->Login($server, $username,$password,$firstname,$lastname));
     }
     
 }
